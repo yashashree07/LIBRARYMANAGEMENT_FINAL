@@ -1,0 +1,31 @@
+Table Name:member_master
+
+Attributes: member_code_pk,
+	member_type
+	name
+	book_code_fk
+	no_of_books_issued
+	
+	
+-----------------------------------
+
+Table name:Book_issue_return
+
+Attributes:
+	issue_date
+	return_date
+	member_code_fk
+	book_code_fk
+	issue_serial_no_pk
+	
+------------------------------------
+
+Table name:Book_master
+
+Attributes:
+	book_code_pk
+	title
+	status
+	author
+	
+	

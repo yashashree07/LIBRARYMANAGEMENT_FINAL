@@ -1,0 +1,153 @@
+Scripts for tables
+-----------------------------------
+1. Tablename: Member_Master
+
+create table Member_master(member_code varchar(10) NOT NULL,member_type varchar(30),name varchar(30),book_code varchar(10),no_of_books_issued number(5),CONSTRAINT member_code_pk PRIMARY KEY(member_code),CONSTRAINT member_type_chk CHECK(member_type LIKE 'S' OR member_type LIKE 'F'),CONSTRAINT book_code_fk FOREIGN KEY(book_code) REFERENCES Book_master(book_code));
+
+
+SQL> delete from Member_master;
+
+2 rows deleted.
+
+SQL> insert into Member_master values('201','S','Sakshi','B103',1);
+
+1 row created.
+
+SQL> insert into Member_master values('202','S','Yashashree','B101',2);
+
+1 row created.
+
+SQL> insert into Member_master values('203','F','Vandana','B102',5);
+
+1 row created.
+
+SQL> insert into Member_master values('204','F','Sharvari','B106',3);
+
+1 row created.
+
+SQL> insert into Member_master values('205','S','Ankita','B109',1);
+
+1 row created.
+
+SQL> insert into Member_master values('206','S','Mansi','B107',1);
+
+1 row created.
+
+SQL> insert into Member_master values('207','F','Aishwarya','B106',1);
+
+1 row created.
+
+SQL> insert into Member_master values('208','S','Ashwini','B101',2);
+
+1 row created.
+
+SQL> insert into Member_master values('209','F','Sneha','B102',1);
+
+1 row created.
+
+SQL> insert into Member_master values('210','S','Riya','B107',1);
+
+1 row created.
+
+1 row created.
+-----------------------------------------------------------------------------------------------------------------------
+2.Table: Book_Master
+
+create table Book_master(book_code varchar(10) NOT NULL,title varchar(30),status varchar(30),author varchar(30),CONSTRAINT book_code_pk PRIMARY KEY(book_code));
+
+
+SQL> insert into Book_master values('B101','Java','A','Henry');
+
+1 row created.
+
+SQL> insert into Book_master values('B102','Python','A','William');
+
+1 row created.
+
+SQL> insert into Book_master values('B103','Java Advance','A','Robert');
+
+1 row created.
+
+SQL> insert into Book_master values('B104','C AND C++ ','I','Dick');
+
+1 row created.
+
+
+SQL> insert into Book_master values('B105','TOC','I','Harry');
+
+1 row created.
+
+SQL> insert into Book_master values('B106','SoftwareTesting','A','Tom');
+
+1 row created.
+
+SQL> insert into Book_master values('B107','DataStructure','A','Bill');
+
+1 row created.
+
+SQL> insert into Book_master values('B108','Algorithms','I','Shakesphere');
+
+1 row created.
+
+SQL> insert into Book_master values('B109','BootStrap','A','Victor');
+
+1 row created.
+
+SQL> insert into Book_master values('B110','Spring','I','Rosey');
+
+1 row created.
+
+SQL>
+
+
+
+-----------------------------------------------------------------------------------------------
+3.Table:Book_issue_return
+
+create table Book_issue_return(issue_serial_no varchar(10),member_code varchar(10),issue_date date default sysdate NOT NULL,return_date date,book_code varchar(10) NOT NULL, CONSTRAINT issue_serial_no_pk PRIMARY KEY(issue_serial_no),CONSTRAINT book_code_fk_one FOREIGN KEY(book_code) REFERENCES Book_master(book_code)
+);
+
+create SEQUENCE 
+
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'210',to_date('29-AUG-2020'),'B107');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'209',to_date('29-AUG-2020'),'B102');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'208',to_date('20-AUG-2020'),'B101');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'207',to_date('13-AUG-2020'),'B106');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'204',to_date('10-AUG-2020'),'B106');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'206',to_date('13-AUG-2020'),'B107');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'205',to_date('15-AUG-2020'),'B109');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'201',to_date('1-SEP-2020'),'B103');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'203',to_date('10-SEP-2020'),'B102');
+
+1 row created.
+
+SQL> insert into Book_issue_return(issue_serial_no,member_code,return_date,book_code) values(issue_serial_no.NEXTVAL,'202',to_date('15-SEP-2020'),'B101');
+
+1 row created.
+
+SQL>
