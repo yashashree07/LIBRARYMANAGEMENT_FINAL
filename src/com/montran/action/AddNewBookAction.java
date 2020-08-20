@@ -36,7 +36,7 @@ public class AddNewBookAction extends Action {
 		Book_pojo book=null;
 		Book_issue_return_pojo issueDetails=null;
 		BookDAO adddao=new BookDAO();
-		Random rand=new Random();
+		
 		
 		if (request.getParameter("member") != null) {
 			if(request.getParameter("member").equals("GetMember"))
@@ -109,7 +109,7 @@ public class AddNewBookAction extends Action {
 				
 				Date issueD = Date.from(issueDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 				Date returnD = Date.from(returnDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-				
+				Random rand=new Random();
 				issueDetails = new Book_issue_return_pojo(rand.nextInt(1000), member,book,issueD,returnD);
 				adddao.issueNewBook(issueDetails);
 				System.out.println("Book Issued Successfully !!");
